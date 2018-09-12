@@ -57,9 +57,9 @@ def getButtonData():
     up = False
     down = False
 
-    if (GPIO.event_detected(21) or GPIO.input(21))
+    if (GPIO.event_detected(21) or GPIO.input(21)):
         up = True
-    if(GPIO.event_detected(5) or GPIO.input(5))
+    if(GPIO.event_detected(5) or GPIO.input(5)):
         down = True
 
     if down:
@@ -72,6 +72,7 @@ def getButtonData():
     else:
         result = result + "false"
     result = result + "}"
+    print(result)
     return result
 
 class ServerHandler(BaseHTTPRequestHandler):
@@ -91,6 +92,9 @@ class ServerHandler(BaseHTTPRequestHandler):
     def log_message(self, format, *args):
         return
 
+try:
 serversocket = HTTPServer(('localhost', 4032), ServerHandler)
 
 serversocket.serve_forever()
+except KeyboardInterrupt:
+    GPIO.cleanup()
