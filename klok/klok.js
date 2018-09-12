@@ -14,7 +14,6 @@ function Updatetime(){
       hourtxt = "0" + hourtxt;
     }
     if (minutestxt.length == 1){
-
       minutestxt = "0" + minutestxt;
     }
     if (secondstxt.length ==1){
