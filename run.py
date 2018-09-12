@@ -7,9 +7,9 @@ def runPage():
     subprocess.call(["chromium-browser", "--allow-insecure-localhost", "--start-fullscreen", "index.html"], shell=True)
 
 touchThread = threading.Thread(target=runTouch)
-touchThread.start()
+#touchThread.start()
 pageThread = threading.Thread(target=runPage)
 pageThread.start()
 
-touchThread.join()
+#touchThread.join()
 pageThread.join()
