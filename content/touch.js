@@ -16,7 +16,25 @@ var snapDistance = 0.01;
 var delta = 1/60;
 var topSpeed = 0;
 
+var scrollTimeout = 10000;
 //document.documentElement.clientHeight
+var timerTimeout = null;
+
+function timer(){
+    if(targetIndex == currentIndex){
+        if(currentIndex >= pages.lenght){
+            currentIndex = currentIndex % pages.lenght;
+        }
+        if(currentIndex < 0){
+            currentIndex = currentIndex % pages.lenght;
+            currentIndex = pages.length - currentIndex - 1;
+        }
+        targetIndex = currentIndex + 1;
+    }
+    setTimeout(timer, scrollTimeout);
+}
+
+timer();
 
 function loop(){
     if(currentIndex != targetIndex){
@@ -46,10 +64,10 @@ function loop(){
         var fract = currentIndex - lowerI;
         var li = lowerI % pages.length;
         if(li < 0)
-            li = pages.length + li;
+            li = pages.length + li - 1;
         var ui = upperI % pages.length;
         if(ui < 0)
-            ui = pages.length + ui;
+            ui = pages.length + ui - 1;
         if(li == -0)
             li = 0;
         if(ui == -0)
