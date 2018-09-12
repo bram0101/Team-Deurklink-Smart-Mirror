@@ -8,6 +8,7 @@ function fetchweer(){
     throw new Error('Network response was not ok.');
   }).then(function(myJson) {
     updateweer(myJson);
+    setTimeout(fetchweer, 900000);
   }).catch(function(error) {
     console.log('There has been a problem with your fetch operation: ', error.message);
   }
@@ -17,9 +18,8 @@ function fetchweer(){
 function updateweer(myJson) {
 
 var weergegevens = myJson['liveweer'][0];
-
+document.getElementById("weer_icon").src="weer/afbeeldingen/" + weergegevens['image'] + ".png";
 document.getElementById('weer_plaats').innerHTML="Weersverwachting voor: " + weergegevens['plaats'];
-document.getElementById('weer_afbeelding').innerHTML=weergegevens['image'];
 document.getElementById('weer_temperatuur').innerHTML="Huidige temperatuur: " + weergegevens['temp'] + " C" + "&#730";;
 document.getElementById('weer_samenvatting').innerHTML="Huidige weeromstandigheden: " + weergegevens['samenv'];
 document.getElementById('weer_windrichting').innerHTML="Windrichting: " + weergegevens['windr'];
@@ -37,9 +37,8 @@ document.getElementById('weer_zonsondergang').innerHTML="Zonsondergang: " + weer
 
 
 pagina.innerHTML = `<span></span>
-
+<img id="weer_icon" src="" class="weer_img"></img>
 <div id="weer_plaats"> </div> <!-- Weerlive waarde: plaats-->
-<div id="weer_afbeelding"> </div> <!-- Weerlive waarde: image-->
 <div id="weer_temperatuur"> </div> <!-- Weerlive waarde: temp-->
 <div id="weer_samenvatting"> </div> <!-- Weerlive waarde: samenv-->
 <div id="weer_windrichting"> </div> <!-- Weerlive waarde: windr-->
