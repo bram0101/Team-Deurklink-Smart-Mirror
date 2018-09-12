@@ -2,8 +2,5 @@ body{
     font-family: Arial;
 }
 
-.twitterwrapper{
-  width: 50vw;
-  height: 100vh;
+.spotifywrapper {
   filter: grayscale(100%) contrast(200%);
-}
