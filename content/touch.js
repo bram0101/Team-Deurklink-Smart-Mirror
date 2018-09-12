@@ -12,7 +12,7 @@ var scrollSpeed = 0;
 var maxScrollSpeed = 0.05;
 var accelerationConstant = 0.0001;
 var slowDownDistance = 0.5;
-var snapDistance = 0.01;
+var snapDistance = 0.001;
 var delta = 1/60;
 var topSpeed = 0;
 
