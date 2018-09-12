@@ -16,7 +16,7 @@ function Updatetime(){
     if (minutestxt.length == 1){
       minutestxt = "0" + minutestxt;
     }
-    if (secondstxt.length ==1){
+    if (secondstxt.length == 1){
       secondstxt = "0" + secondstxt;
     }
     clock = hourtxt + ":" + minutestxt + ":" + secondstxt;
