@@ -5,5 +5,5 @@ body{
 .twitterwrapper{
   width: 50vw;
   height: 100vh;
-  filter: grayscale(100%) contrast(200%) invert(100%);
+  filter: grayscale(100%) contrast(200%) invert(200%);
 }
