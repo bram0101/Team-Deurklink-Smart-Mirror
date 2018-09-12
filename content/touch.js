@@ -15,6 +15,7 @@ var slowDownDistance = 0.5;
 var snapDistance = 0.001;
 var delta = 1/60;
 var topSpeed = 0;
+var oldTargetIndex = 0;
 
 var scrollTimeout = 10000;
 //document.documentElement.clientHeight
@@ -31,13 +32,18 @@ function timer(){
         }
         targetIndex = currentIndex + 1;
     }
-    setTimeout(timer, scrollTimeout);
+    timerTimeout = setTimeout(timer, scrollTimeout);
 }
 
 timer();
 
 function loop(){
     if(currentIndex != targetIndex){
+        if(targetIndex != oldTargetIndex){
+            if((targetIndex < currentIndex && oldTargetIndex > currentIndex) || (targetIndex > currentIndex && oldTargetIndex < currentIndex)){
+                scrollSpeed *= -1; // Als de targetIndex tijdens de animatie verandert, en hij moet de andere kant op, dan moet de snelheid omgekeerd worden.
+            }
+        }
         if(scrollSpeed == 0){
             scrollSpeed += currentIndex < targetIndex ? accelerationConstant : -accelerationConstant;
         }
@@ -55,6 +61,7 @@ function loop(){
             topSpeed = 0;
         }
         currentIndex += scrollSpeed;
+        oldTargetIndex = targetIndex;
 
         for(var i = 0; i < pages.length; i++){
             pages[i].style = "display: none; transform: translateY(0px);";
@@ -80,3 +87,37 @@ function loop(){
 }
 
 requestAnimationFrame(loop);
+
+var prevState = {"down": false,  "up": true};
+
+function pollData(){
+    fetch('http://localhost:4032')
+    .then(function(response) {
+        return response.json();
+    })
+    .then(function(json) {
+        var changed = false;
+        //console.log(JSON.stringify(json));
+        if(json["down"] == true && json["up"] == true){
+            // Niets down nu.
+        }else if(json["down"] == true && prevState["down"] == false){
+            targetIndex = targetIndex - 1;
+            changed = true;
+        }else if(json["up"] == true && prevState["up"] == false){
+            targetIndex = targetIndex + 1;
+            changed = true;
+        }
+        prevState = json;
+        if(changed){
+            console.log(targetIndex);
+            clearTimeout(timerTimeout);
+            setTimeout(timerTimeout, 30000);
+        }
+    }).catch(function (error){
+        //console.error(error);
+    });
+
+    setTimeout(pollData, 2500);
+}
+
+setTimeout(pollData, 1000);
