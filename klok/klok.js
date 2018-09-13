@@ -20,7 +20,7 @@ function Updatetime(){
       secondstxt = "0" + secondstxt;
     }
     clock = hourtxt + ":" + minutestxt + ":" + secondstxt;
-   pagina.innerHTML = "<div>"+clock+"</div>";
+   pagina.innerHTML = "<div class=\"kloktext\">"+clock+"</div>";
    setTimeout(Updatetime, 1000);
 }
 Updatetime ();
