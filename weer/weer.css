@@ -1,5 +1,5 @@
 body{
-    font-family: Arial;
+    font-family: 'Roboto', black;
 }
 
 .weer_img{
@@ -7,16 +7,23 @@ body{
   width:100%;
 }
 
+.zoninfo{
+  filter: invert(100%);
+  width: 50%;
+}
+
 .grid-container {
   display: grid;
   height: 100%;
   grid-template-columns: 0.5fr 1.2fr 1.8fr 0.7fr 1fr;
-  grid-template-rows: 0.3fr 2.5fr 0.7fr 0.7fr 0.4fr;
+  grid-template-rows: 0.3fr 1fr 0.7fr 0.7fr 0.4fr;
   grid-gap: 1px;
+  font-size: 1.5em
+  font-family: 'Roboto', sans-serif;
 
 }
 
-.weer_icon { grid-area: 2 / 3 / 3 / 5; grid-row-start:2; grid-column-start:1; grid-row-end:2; grid-column-end:2; width:100%;}
+.weer_icon { grid-area: 2 / 1 / 3 / 3; width:60%;}
 
 .weericon_morgen { grid-area: 3 / 1 / 4 / 2; }
 
@@ -28,8 +35,8 @@ body{
 
 .weerinfo_morgen { grid-area: 3 / 2 / 4 / 5; }
 
-.weerinfo_vandaag { grid-area: 2 / 2 / 3 / 5; }
+.weerinfo_vandaag { grid-area: 2 / 3 / 3 / 5; font-size: 4em;}
 
 .overig { grid-area: 2 / 5 / 6 / 6; }
 
-.weerinfo_plaats { grid-area: 1 / 1 / 2 / 6; width:100%; grid-row-start:1; grid-column-start:1; grid-row-end:1; grid-column-end:6; width:100%;}
+.weerinfo_plaats { grid-area: 1 / 1 / 2 / 6; width:100%; grid-row-start:1; grid-column-start:1; grid-row-end:1; grid-column-end:6; width:100%; font-size: 2em;}
