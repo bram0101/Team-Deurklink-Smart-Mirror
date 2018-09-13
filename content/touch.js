@@ -6,6 +6,8 @@ var pages = [document.getElementById("klok"),
             document.getElementById("spotify"),
             document.getElementById("pubg")];
 
+var scrollFade = document.getElementById("scrollFade");
+
 var currentIndex = 0;
 var targetIndex = 0;
 var scrollSpeed = 0;
@@ -38,7 +40,10 @@ function timer(){
 timer();
 
 function loop(){
+    if(scrollFade.style != "")
+        scrollFade.style = "";
     if(currentIndex != targetIndex){
+        scrollFade.style = "opacity: 1.0";
         if(targetIndex != oldTargetIndex){
             if((targetIndex < currentIndex && oldTargetIndex > currentIndex) || (targetIndex > currentIndex && oldTargetIndex < currentIndex)){
                 scrollSpeed *= -1; // Als de targetIndex tijdens de animatie verandert, en hij moet de andere kant op, dan moet de snelheid omgekeerd worden.
@@ -51,9 +56,12 @@ function loop(){
             if(topSpeed == 0)
                 topSpeed = scrollSpeed;
             //scrollSpeed = scrollSpeed - delta * topSpeed / slowDownDistance;
-            scrollSpeed = topSpeed * Math.pow(Math.abs(targetIndex - currentIndex) / slowDownDistance, 0.5);
+            var mult = Math.pow(Math.abs(targetIndex - currentIndex) / slowDownDistance, 0.5);
+            scrollSpeed = topSpeed * mult;
+            scrollFade.style = "opacity: " + mult;
         }else if(Math.abs(scrollSpeed) < maxScrollSpeed){
             scrollSpeed = Math.max(-maxScrollSpeed, Math.min(maxScrollSpeed, scrollSpeed + (scrollSpeed < 0 ? -accelerationConstant : accelerationConstant)));
+            scrollFade.style = "opacity: " + Math.min((Math.abs(scrollSpeed) / maxScrollSpeed) * 8.0, 1.0);
         }
         if(Math.abs(targetIndex - currentIndex) < snapDistance || (scrollSpeed < 0 && targetIndex > currentIndex) || (scrollSpeed > 0 && targetIndex < currentIndex)){
             currentIndex = targetIndex;
@@ -117,7 +125,7 @@ function pollData(){
         //console.error(error);
     });
 
-    setTimeout(pollData, 2500);
+    setTimeout(pollData, 250);
 }
 
 setTimeout(pollData, 1000);

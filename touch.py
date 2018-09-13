@@ -72,7 +72,7 @@ def getButtonData():
     else:
         result = result + "false"
     result = result + "}"
-    print(result)
+    #print(result)
     return result
 
 class ServerHandler(BaseHTTPRequestHandler):
@@ -93,8 +93,7 @@ class ServerHandler(BaseHTTPRequestHandler):
         return
 
 try:
-serversocket = HTTPServer(('localhost', 4032), ServerHandler)
-
-serversocket.serve_forever()
+    serversocket = HTTPServer(('localhost', 4032), ServerHandler)
+    serversocket.serve_forever()
 except KeyboardInterrupt:
     GPIO.cleanup()
