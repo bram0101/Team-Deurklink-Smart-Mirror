@@ -2,9 +2,9 @@ body{
     font-family: Arial;
 }
 
-#divRss{ width:250px; padding: 0px; background-color:#000000; border:0px solid #D3CAD7; margin:4px; float: right; }
-.ItemTitle{ font-weight:bold; font-size: 12px; margin:5px 0px 0px 0px; padding-top:3px; }
+#divRss{ width:500px; padding: 0px; background-color:#000000; border:0px solid #D3CAD7; margin:4px; float: right; }
+.ItemTitle{ font-weight:bold; font-size: 20px; margin:6px 0px 0px 0px; padding-top:4px; }
 .ItemTitle a{ color:#FFFFFF; text-decoration:none }
 .ItemTitle a:hover{ text-decoration:underline }
 .ItemContent{ padding:1px 3px 3px 3px; border-bottom:1px solid #FFF; color:#3E3E3E; }
-.ItemDate{ font-size:11px; color:#585858; }
+.ItemDate{ font-size:14px; color:#e7e7e7; }
