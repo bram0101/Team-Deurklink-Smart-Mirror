@@ -3,7 +3,7 @@ import subprocess
 import os
 
 def runTouch():
-    subprocess.call(["sudo", "python3", os.path.dirname(os.path.realpath(__file__)) + "/touch.py"], shell=True)
+    subprocess.call("python3 \"" + os.path.dirname(os.path.realpath(__file__)) + "/touch.py\"", shell=True)
 
 def runPage():
     subprocess.call("chromium-browser --allow-insecure-localhost --start-fullscreen \"" + os.path.dirname(os.path.realpath(__file__)) + "/index.html\"", shell=True)
