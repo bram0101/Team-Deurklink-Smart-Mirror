@@ -4,4 +4,32 @@ body{
 
 .weer_img{
   filter: invert(100%);
+  width:100%;
 }
+
+.grid-container {
+  display: grid;
+  height: 100%;
+  grid-template-columns: 0.5fr 1.2fr 1.8fr 0.7fr 1fr;
+  grid-template-rows: 0.3fr 2.5fr 0.7fr 0.7fr 0.4fr;
+  grid-gap: 1px;
+
+}
+
+.weer_icon { grid-area: 2 / 3 / 3 / 5; grid-row-start:2; grid-column-start:1; grid-row-end:2; grid-column-end:2; width:100%;}
+
+.weericon_morgen { grid-area: 3 / 1 / 4 / 2; }
+
+.weericon_overmorgen { grid-area: 4 / 1 / 5 / 2; }
+
+.footer { grid-area: 5 / 1 / 6 / 5; }
+
+.weerinfo_overmorgen { grid-area: 4 / 2 / 5 / 5; }
+
+.weerinfo_morgen { grid-area: 3 / 2 / 4 / 5; }
+
+.weerinfo_vandaag { grid-area: 2 / 2 / 3 / 5; }
+
+.overig { grid-area: 2 / 5 / 6 / 6; }
+
+.weerinfo_plaats { grid-area: 1 / 1 / 2 / 6; width:100%; grid-row-start:1; grid-column-start:1; grid-row-end:1; grid-column-end:6; width:100%;}
