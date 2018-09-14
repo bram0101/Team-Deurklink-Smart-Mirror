@@ -15,7 +15,7 @@ function twitter_loop(){
     Tweets by Windesheiminfo</a>
     </div>
     `;
-    setTimeout(twitter_loop, 900000);
+    setTimeout(twitter_loop, 15000);
 }
 
-setTimeout(twitter_loop, 900000);
+setTimeout(twitter_loop, 15000);
