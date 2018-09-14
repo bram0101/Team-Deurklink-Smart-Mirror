@@ -110,7 +110,7 @@ function pollData(){
                 powerDownTime = new Date().getTime();
             }
             if(new Date().getTime() - powerDownTime > 2000){
-                document.getElementById("pageWrapper").style = "dispay: none;";
+                document.getElementById("pageWrapper").style = "display: none";
             }
             // Niets down nu.
         }else if(json["down"] == true && prevState["down"] == false){
