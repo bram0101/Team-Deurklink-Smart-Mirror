@@ -1,7 +1,7 @@
-var pagina = document.getElementById("klok");
+var pagina_klok = document.getElementById("klok");
 
 function Updatetime(){
-    pagina.innerHTML = "<span>KLOK</span>";
+    pagina_klok.innerHTML = "<span>KLOK</span>";
     var clock = "";
     var date = new Date();
     var hour = date.getHours();
@@ -30,7 +30,7 @@ function Updatetime(){
     }
     day = datetxt + "-" + monthtxt + "-" + yeartxt;
     clock = hourtxt + ":" + minutestxt + ":" + secondstxt;
-   pagina.innerHTML = "<div class=\"kloktext\">"+clock+"</div>" +
+   pagina_klok.innerHTML = "<div class=\"kloktext\">"+clock+"</div>" +
    "<div class=\"datumtxt\">"+day+"<div>";
    setTimeout(Updatetime, 1000);
 }

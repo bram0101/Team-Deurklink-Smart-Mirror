@@ -2,10 +2,10 @@ body{
     font-family: Arial;
 }
 .kloktext {
-    text-align: right;
+    text-align: left;
     font-size: 700%;
 }
 .datumtxt {
-    text-align: right;
+    text-align: left;
     font-size: 300%;
 }

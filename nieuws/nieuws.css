@@ -2,9 +2,13 @@ body{
     font-family: Arial;
 }
 
-#divRss{ width:500px; padding: 0px; background-color:#000000; border:0px solid #D3CAD7; margin:4px; float: right; }
-.ItemTitle{ font-weight:bold; font-size: 20px; margin:6px 0px 0px 0px; padding-top:4px; }
+.nieuws_page{
+    font-size: 1.5em;
+}
+
+#divRss{ width:500px; padding: 0px; background-color:#000000; border:0px solid #D3CAD7; margin:4px; float: left; }
+.ItemTitle{ font-weight:bold; font-size: 1.5em; margin:6px 0px 0px 0px; padding-top:4px; }
 .ItemTitle a{ color:#FFFFFF; text-decoration:none }
 .ItemTitle a:hover{ text-decoration:underline }
 .ItemContent{ padding:1px 3px 3px 3px; border-bottom:1px solid #FFF; color:#3E3E3E; }
-.ItemDate{ font-size:14px; color:#e7e7e7; }
+.ItemDate{ font-size:1em; color:#e7e7e7; }

@@ -3,7 +3,7 @@ body{
 }
 
 .twitterwrapper{
-  width: 50vw;
+  width: 37.5vw;
   height: 100vh;
   filter: grayscale(100%) contrast(200%) invert(100%);
 }

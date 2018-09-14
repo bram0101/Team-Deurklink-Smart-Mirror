@@ -1,4 +1,4 @@
-var pagina = document.getElementById("weer");
+var pagina_weer = document.getElementById("weer");
 //Custom code
 function fetchweer(){
   fetch('https://weerlive.nl/api/json-data-10min.php?key=902c9408a9&locatie=Zwolle').then(function(response) {
@@ -44,7 +44,7 @@ document.getElementById('weer_zonsondergang').innerHTML="<b>Zonsondergang:</b> "
 //Einde custom code
 
 
-pagina.innerHTML = `<span></span>
+pagina_weer.innerHTML = `<span></span>
 
 <!-- Weerlive vandaag-->
 <div id="grid-container" class="grid-container">

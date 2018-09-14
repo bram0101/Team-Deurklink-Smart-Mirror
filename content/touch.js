@@ -1,10 +1,8 @@
 var pages = [document.getElementById("klok"),
             document.getElementById("weer"),
             document.getElementById("nieuws"),
-            document.getElementById("rooster"),
             document.getElementById("twitter"),
-            document.getElementById("spotify"),
-            document.getElementById("pubg")];
+            document.getElementById("spotify")];
 
 var scrollFade = document.getElementById("scrollFade");
 
@@ -97,6 +95,7 @@ function loop(){
 requestAnimationFrame(loop);
 
 var prevState = {"down": false,  "up": true};
+var powerDownTime = 0;
 
 function pollData(){
     fetch('http://localhost:4032')
@@ -107,6 +106,12 @@ function pollData(){
         var changed = false;
         //console.log(JSON.stringify(json));
         if(json["down"] == true && json["up"] == true){
+            if(powerDownTime == 0){
+                powerDownTime = new Date().getTime();
+            }
+            if(new Date().getTime() - powerDownTime > 2000){
+                document.getElementById("pageWrapper").style = "dispay: none;";
+            }
             // Niets down nu.
         }else if(json["down"] == true && prevState["down"] == false){
             targetIndex = targetIndex - 1;
@@ -114,9 +119,13 @@ function pollData(){
         }else if(json["up"] == true && prevState["up"] == false){
             targetIndex = targetIndex + 1;
             changed = true;
+        }else{
+            powerDownTime = 0;
         }
         prevState = json;
         if(changed){
+            document.getElementById("pageWrapper").style = "";
+            powerDownTime = 0;
             console.log(targetIndex);
             clearTimeout(timerTimeout);
             setTimeout(timerTimeout, 30000);
