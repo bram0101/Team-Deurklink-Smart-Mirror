@@ -9,8 +9,8 @@ var scrollFade = document.getElementById("scrollFade");
 var currentIndex = 0;
 var targetIndex = 0;
 var scrollSpeed = 0;
-var maxScrollSpeed = 0.05;
-var accelerationConstant = 0.0001;
+var maxScrollSpeed = 0.075;
+var accelerationConstant = 0.0003;
 var slowDownDistance = 0.5;
 var snapDistance = 0.001;
 var delta = 1/60;
@@ -128,7 +128,7 @@ function pollData(){
             powerDownTime = 0;
             console.log(targetIndex);
             clearTimeout(timerTimeout);
-            setTimeout(timerTimeout, 30000);
+            timerTimeout = setTimeout(timer, 120000);
         }
     }).catch(function (error){
         //console.error(error);
