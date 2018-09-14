@@ -1,0 +1,11 @@
+body{
+    font-family: Arial;
+}
+.kloktext {
+    text-align: right;
+    font-size: 700%;
+}
+.datumtxt {
+    text-align: right;
+    font-size: 300%;
+}
