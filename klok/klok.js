@@ -10,6 +10,15 @@ function Updatetime(){
     var hourtxt = hour + "";
     var minutestxt = minutes + "";
     var secondstxt = seconds + "";
+    //vanaf hier datum
+    var day = "";
+    var year = date.getFullYear();
+    var month = date.getMonth();
+    var date = date.getDate();
+    var yeartxt = year + "";
+    var monthtxt = (month + 1) + "";
+    var datetxt = date + "";
+    //vanaf hier verder
     if (hourtxt.length == 1){
       hourtxt = "0" + hourtxt;
     }
@@ -19,8 +28,10 @@ function Updatetime(){
     if (secondstxt.length == 1){
       secondstxt = "0" + secondstxt;
     }
+    day = datetxt + "-" + monthtxt + "-" + yeartxt;
     clock = hourtxt + ":" + minutestxt + ":" + secondstxt;
-   pagina.innerHTML = "<div class=\"kloktext\">"+clock+"</div>";
+   pagina.innerHTML = "<div class=\"kloktext\">"+clock+"</div>" +
+   "<div class=\"datumtxt\">"+day+"<div>";
    setTimeout(Updatetime, 1000);
 }
 Updatetime ();
