@@ -70,7 +70,7 @@ function loop(){
         oldTargetIndex = targetIndex;
 
         for(var i = 0; i < pages.length; i++){
-            pages[i].style = "display: none; transform: translateY(0px);";
+            pages[i].style = "transform: translateY(-" + document.documentElement.clientHeight + "px) translateZ(0px);";
         }
         var lowerI = Math.floor(currentIndex);
         var upperI = Math.ceil(currentIndex);
@@ -85,8 +85,8 @@ function loop(){
             li = 0;
         if(ui == -0)
             ui = 0;
-        pages[ui].style = "display: block; transform: translateY(" + ((1.0 - fract) * document.documentElement.clientHeight) + "px);";
-        pages[li].style = "display: block; transform: translateY(" + (-fract * document.documentElement.clientHeight) + "px);";
+        pages[ui].style = "transform: translateY(" + ((1.0 - fract) * document.documentElement.clientHeight) + "px) translateZ(0px);";
+        pages[li].style = "transform: translateY(" + (-fract * document.documentElement.clientHeight) + "px) translateZ(0px);";
     }
 
     requestAnimationFrame(loop);
