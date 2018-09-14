@@ -1,0 +1,9 @@
+body{
+    font-family: Arial;
+}
+
+.twitterwrapper{
+  width: 50vw;
+  height: 100vh;
+  filter: grayscale(100%) contrast(200%) invert(100%);
+}
