@@ -19,9 +19,6 @@ body{
     height: 100vh;
     transform: translateZ(0px);
     z-index: 1;
-    line-height: 100vh;
-    text-align: center;
-    font-size: 25vh;
     overflow: hidden;
 }
 
