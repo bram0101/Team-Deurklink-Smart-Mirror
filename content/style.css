@@ -3,6 +3,8 @@ body{
     color: rgb(100%, 100%, 100%);
     margin: 0px;
     padding: 0px;
+    font-family: Arial;
+    overflow: hidden;
 }
 
 .pageWrapper{
@@ -17,4 +19,19 @@ body{
     height: 100vh;
     transform: translateZ(0px);
     z-index: 1;
+    line-height: 100vh;
+    text-align: center;
+    font-size: 25vh;
+    overflow: hidden;
+}
+
+.scrollFade{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    top: 0px;
+    left: 0px;
+    z-index: 99;
+    background: linear-gradient(to bottom, rgba(0,0,0,1) 0%,rgba(255,255,255,0) 50%,rgba(0,0,0,1) 100%);
+    opacity: 0;
 }
