@@ -1,0 +1,6 @@
+body{
+    font-family: Arial;
+}
+
+.spotifywrapper {
+  filter: grayscale(100%) contrast(200%);
